@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <h1>
+                {% trans 'User: ' %}{{ element }}
+            </h1>
+            <div class="table">
+                <div class="table">
+                    <table class="table table-responsive table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    {% trans 'Name' %}
+                                </th>
+                                <th>
+                                    {% trans 'Value' %}
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                              <td>
+                                  {% trans 'Email' %}
+                              </td>
+                              <td>
+                                  {{ element.email }}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                  {% trans 'Is Staff' %}
+                              </td>
+                              <td>
+                                  {{ element.is_staff }}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                  {% trans 'Is Active' %}
+                              </td>
+                              <td>
+                                  {{ element.is_active }}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                  {% trans 'Last Login' %}
+                              </td>
+                              <td>
+                                  {{ element.last_login|date:"Y-m-d H:i" }}
+                              </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="actions">
+                <a href="javascript:window.history.back();">
+                    <button class="btn btn-default">
+                            Back
+                    </button>
+                </a>
+                <a href="eliminar">
+                    <button class="btn btn-danger">
+                        {% trans 'Delete' %}
+                    </button>
+                </a>
+                <a href="actualizar">
+                    <button class="btn btn-primary">
+                        {% trans 'Update' %}
+                    </button>
+                </a>
+                <a href="{{ reassign_password_reversed_url }}">
+                    <button class="btn btn-primary">
+                        {% trans 'Reset Password' %}
+                    </button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
