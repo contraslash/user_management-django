@@ -65,16 +65,20 @@
                             Back
                     </button>
                 </a>
-                <a href="eliminar">
-                    <button class="btn btn-danger">
-                        {% trans 'Delete' %}
-                    </button>
-                </a>
-                <a href="actualizar">
-                    <button class="btn btn-primary">
-                        {% trans 'Update' %}
-                    </button>
-                </a>
+                {% if update_object_reversed_url %}
+                    <a href="{{ update_object_reversed_url }}">
+                        <button class="btn btn-primary">
+                            {% trans 'Update' %}
+                        </button>
+                    </a>
+                {% endif %}
+                {% if delete_object_reversed_url %}
+                    <a href="{{ delete_object_reversed_url }}">
+                        <button class="btn btn-danger">
+                            {% trans 'Delete' %}
+                        </button>
+                    </a>
+                {% endif %}
                 <a href="{{ reassign_password_reversed_url }}">
                     <button class="btn btn-primary">
                         {% trans 'Reset Password' %}

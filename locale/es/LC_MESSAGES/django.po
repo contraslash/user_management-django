@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-01 12:05-0500\n"
+"POT-Creation-Date: 2019-04-01 18:09-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: conf.py:17
+msgid "User Management"
+msgstr "Manejo de usuarios"
+
+#: conf.py:21
+#| msgid "User: "
+msgid "Users"
+msgstr "Usuarios"
+
+#: forms.py:23
+#| msgid "Reset Password"
+msgid "Password"
+msgstr "Contraseña"
+
+#: forms.py:29
+msgid "Password confirmation"
+msgstr "Confirmación de la contraseña"
+
+#: forms.py:32
+msgid "Enter the same password as before, for verification."
+msgstr "Ingrese la misma contraseña, para verificación"
 
 #: templates/user_management/detail.html:8
 msgid "User: "
@@ -46,14 +68,24 @@ msgstr "Es activo"
 msgid "Last Login"
 msgstr "Último ingreso"
 
-#: templates/user_management/detail.html:70
-msgid "Delete"
-msgstr "Eliminar"
-
-#: templates/user_management/detail.html:75
+#: templates/user_management/detail.html:71
+#: templates/user_management/update.html:8
 msgid "Update"
 msgstr "Actualizar"
 
-#: templates/user_management/detail.html:80
+#: templates/user_management/detail.html:78
+msgid "Delete"
+msgstr "Eliminar"
+
+#: templates/user_management/detail.html:84
 msgid "Reset Password"
 msgstr "Reasignar contraseña"
+
+#: templates/user_management/update.html:58
+msgid "Back"
+msgstr "Atrás"
+
+#: templates/user_management/update.html:62
+#| msgid "Update"
+msgid "update"
+msgstr "Actualizar"

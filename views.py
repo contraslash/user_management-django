@@ -29,8 +29,12 @@ class List(
     def get_context_data(self, **kwargs):
         context = super(List, self).get_context_data(**kwargs)
 
-        for user in context[self.context_object_name]:
-            user.url_name = conf.USER_DETAIL_URL_NAME
+        context['detail_url_name'] = conf.USER_DETAIL_URL_NAME
+
+        if self.request.user.has_perm("auth.add_user"):
+            context['create_object_reversed_url'] = reverse_lazy(
+                conf.USER_CREATE_URL_NAME
+            )
 
         return context
 
@@ -61,6 +65,18 @@ class Detail(
     def get_context_data(self, **kwargs):
         context = super(Detail, self).get_context_data(**kwargs)
 
+        if self.request.user.has_perm("auth.change_user"):
+            context['update_object_reversed_url'] = reverse_lazy(
+                conf.USER_UPDATE_URL_NAME,
+                kwargs=self.kwargs_for_reverse_url()
+            )
+
+        if self.request.user.has_perm("auth.delete_user"):
+            context['delete_object_reversed_url'] = reverse_lazy(
+                conf.USER_DELETE_URL_NAME,
+                kwargs=self.kwargs_for_reverse_url()
+            )
+
         context['reassign_password_reversed_url'] = self.reassign_password_reversed_url()
 
         return context
@@ -83,6 +99,7 @@ class Update(
     """
     model = models.User
     form_class = user_management_forms.UserGroups
+    template_name = "user_management/update.html"
 
     def __init__(self):
         super(Update, self).__init__()
