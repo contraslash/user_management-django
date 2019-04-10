@@ -36,6 +36,8 @@ class List(
                 conf.USER_CREATE_URL_NAME
             )
 
+        # TODO: We can use a table with groups permissions and last login
+
         return context
 
 
